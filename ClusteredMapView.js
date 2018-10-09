@@ -92,7 +92,7 @@ export default class ClusteredMapView extends PureComponent {
         region.longitudeDelta >= 40
           ? { zoom: this.props.minZoom }
           : GeoViewport.viewport(bbox, this.dimensions);
-    this.allZoomed = viewport.zoom === this.props.maxZoom;
+    this.allZoomed = viewport.zoom >= this.props.maxZoom * 0.9;
     return this.index.getClusters(bbox, viewport.zoom);
   };
 
